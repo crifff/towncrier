@@ -93,7 +93,7 @@ func (p *Parent) FreeChild() (*Child, error) {
 	return nil, errors.New("full")
 }
 
-func (p *Parent) JoinFreieChild(gID, cID string) error {
+func (p *Parent) JoinFreeChild(gID, cID string) error {
 	for i := range p.Children {
 		if p.Children[i] == nil {
 			panic("child is nil")
@@ -155,15 +155,6 @@ func (p *Parent) Close() {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		//cmds, err := p.bot.session.ApplicationCommands(p.bot.session.State.User.ID, GuildID)
-		//if err != nil {
-		//	panic(err)
-		//}
-		//for _, cmd := range cmds {
-		//	if err := p.bot.session.ApplicationCommandDelete(p.bot.session.State.User.ID, GuildID, cmd.ID); err != nil {
-		//		panic(err)
-		//	}
-		//}
 	}()
 	wg.Wait()
 
