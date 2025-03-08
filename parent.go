@@ -132,8 +132,8 @@ func (p *Parent) Handle() {
 		}
 	}()
 
-	// 定期的にミキシングして送信（20ms間隔）
-	ticker := time.NewTicker(20 * time.Millisecond)
+	// 定期的にミキシングして送信（15ms間隔に短縮して安定性向上）
+	ticker := time.NewTicker(15 * time.Millisecond)
 	go func() {
 		for {
 			select {
